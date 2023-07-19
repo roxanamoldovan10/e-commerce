@@ -12,6 +12,3 @@ const SignIn = () => {
 };
 
 export default SignIn;
-
-// create sign-in component
-// takes an email and password and tries to verify
