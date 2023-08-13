@@ -29,6 +29,7 @@ const firebaseConfig = {
   appId: '1:289127293423:web:6773100ddbf43dd850961a',
 };
 
+// eslint-disable-next-line
 const firebaseApp = initializeApp(firebaseConfig);
 
 // You can have multiple different providers - you might have different button that trigger different events
@@ -71,13 +72,7 @@ export const getCategoriesAndDocuments = async () => {
 
   // Fetch document snapshots
   const querySnapshot = await getDocs(q);
-  const categoryMap = querySnapshot.docs.reduce((acc, docSnapshot) => {
-    const { title, items } = docSnapshot.data();
-    acc[title.toLowerCase()] = items;
-    return acc;
-  }, {});
-
-  return categoryMap;
+  return querySnapshot.docs.map((docSnapshot) => docSnapshot.data());
 };
 
 export const createUserDocumentFromAuth = async (
