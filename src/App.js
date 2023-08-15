@@ -6,30 +6,16 @@ import Navigation from './routes/navigation/navigation.component';
 import Shop from './routes/shop/shop.component';
 import { useDispatch } from 'react-redux';
 
-import { setCurrentUser } from './store/user/user.action';
-
+import { checkUserSession } from './store/user/user.action';
 import { useEffect } from 'react';
-
-import {
-  createUserDocumentFromAuth,
-  onAuthStateChangedListener,
-} from './utils/firebase/firebase.utils';
 
 const App = () => {
   const dispatch = useDispatch();
 
   // Running on initialization to setup the listener
   useEffect(() => {
-    const unsubscribe = onAuthStateChangedListener((user) => {
-      if (user) {
-        createUserDocumentFromAuth(user);
-      }
-      dispatch(setCurrentUser(user));
-    });
-
-    // Unsubscribe when unmounting
-    return unsubscribe;
-  }, [dispatch]);
+    dispatch(checkUserSession());
+  }, []);
 
   return (
     <Routes>
