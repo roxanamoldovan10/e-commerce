@@ -5,8 +5,13 @@ import {
   Body,
   DirectoryItemContainer,
 } from './directory-item.styles';
+import { CategoryDirectory } from 'store/categories/category.types';
 
-const DirectoryItem = ({ category }) => {
+type DirectoryItemProps = {
+  category: CategoryDirectory;
+};
+
+const DirectoryItem = ({ category }: DirectoryItemProps) => {
   const { imageUrl, title, route } = category;
   const navigate = useNavigate();
 

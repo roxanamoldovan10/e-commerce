@@ -1,8 +1,4 @@
-import DirectoryItem from '../directory-item/directory-item.component';
-
-import { DirectoryContainer } from './directory.styles';
-
-const categories = [
+const CATEGORIES_DATA = [
   {
     id: 1,
     title: 'hats',
@@ -34,15 +30,3 @@ const categories = [
     route: 'shop/mens',
   },
 ];
-
-const Directory = () => {
-  return (
-    <DirectoryContainer>
-      {categories.map((category) => (
-        <DirectoryItem key={category.id} category={category} />
-      ))}
-    </DirectoryContainer>
-  );
-};
-
-export default Directory;

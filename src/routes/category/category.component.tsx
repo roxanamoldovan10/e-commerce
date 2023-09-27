@@ -1,15 +1,13 @@
-import { useState, useEffect, Fragment } from 'react';
-import { useParams } from 'react-router-dom';
+import { Fragment, useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
 import {
   selectCategoriesIsLoading,
   selectCategoriesMap,
 } from '../../store/categories/category.selector';
-
 import ProductCard from '../../components/product-card/product-card.component';
-
-import { CategoryContainer, Title } from './category.styles';
 import Spinner from '../../components/spinner/spinner.component';
+import { CategoryContainer, Title } from './category.styles';
 
 type CategoryRouteParams = {
   category: string;

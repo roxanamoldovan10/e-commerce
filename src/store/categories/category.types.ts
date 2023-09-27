@@ -20,3 +20,7 @@ export type Category = {
 export type CategoryMap = {
   [key: string]: CategoryItem[];
 };
+
+export type CategoryDirectory = Pick<Category, 'imageUrl' | 'title'> & {
+  route: string;
+};
