@@ -1,4 +1,4 @@
-const CATEGORIES_DATA = [
+export const CATEGORIES_DATA = [
   {
     id: 1,
     title: 'hats',
