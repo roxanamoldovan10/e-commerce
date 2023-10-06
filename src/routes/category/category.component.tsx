@@ -8,6 +8,8 @@ import {
 import ProductCard from '../../components/product-card/product-card.component';
 import Spinner from '../../components/spinner/spinner.component';
 import { CategoryContainer, Title } from './category.styles';
+import Typography from '@mui/material/Typography';
+import Container from '@mui/material/Container';
 
 type CategoryRouteParams = {
   category: string;
@@ -27,7 +29,11 @@ const Category = () => {
 
   return (
     <Fragment>
-      <Title>{category.toUpperCase()}</Title>
+      <Container sx={{ display: 'flex', justifyContent: 'center', mb: 5 }}>
+        <Typography variant='h5' sx={{}}>
+          {category.toUpperCase()}
+        </Typography>
+      </Container>
       {isLoading ? (
         <Spinner />
       ) : (

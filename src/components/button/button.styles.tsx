@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 import { SpinnerContainer } from '../spinner/spinner.styles';
+import Button from '@mui/material/Button';
 
 export const BaseButton = styled.button`
   min-width: 165px;
@@ -28,7 +29,7 @@ export const BaseButton = styled.button`
   }
 `;
 
-export const GoogleSignInButton = styled(BaseButton)`
+export const GoogleSignInButton = styled<any>(Button)`
   background-color: #4285f4;
   color: white;
 

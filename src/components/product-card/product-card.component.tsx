@@ -8,7 +8,9 @@ import {
   Name,
   Price,
   ProductCartContainer,
+  ProductImage,
 } from './product-card.styles';
+import Typography from '@mui/material/Typography';
 
 type ProductCardProps = {
   product: CategoryItem;
@@ -23,10 +25,12 @@ const ProductCard = ({ product }: ProductCardProps) => {
 
   return (
     <ProductCartContainer>
-      <img src={imageUrl} alt={`${name}`} />
+      <ProductImage src={imageUrl} alt={`${name}`} />
       <Footer>
-        <Name>{name}</Name>
-        <Price>{price}</Price>
+        <Typography variant='caption'>{name}</Typography>
+        <Typography variant='subtitle2' sx={{ fontWeight: 'bold' }}>
+          $ {price}
+        </Typography>
       </Footer>
       <Button
         buttonType={BUTTON_TYPE_CLASSES.inverted}

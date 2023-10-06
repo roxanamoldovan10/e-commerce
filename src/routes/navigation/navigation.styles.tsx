@@ -27,3 +27,8 @@ export const NavLink = styled(Link)`
   padding: 10px 15px;
   cursor: pointer;
 `;
+
+export const Title = styled.div`
+  margin-bottom: 25px;
+  cursor: pointer;
+`;

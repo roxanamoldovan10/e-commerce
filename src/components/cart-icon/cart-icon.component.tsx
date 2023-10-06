@@ -1,8 +1,8 @@
+import ShoppingBagOutlinedIcon from '@mui/icons-material/ShoppingBagOutlined';
 import { useDispatch, useSelector } from 'react-redux';
-import { ReactComponent as ShoppingIcon } from 'assets/shopping-bag.svg';
-import { CartIconContainer, ItemCount } from './cart-icon.styles';
-import { selectIsCartOpen, selectCartCount } from 'store/cart/cart.selector';
 import { setIsCartOpen } from 'store/cart/cart.action';
+import { selectCartCount, selectIsCartOpen } from 'store/cart/cart.selector';
+import { CartIconContainer, StyledBadge } from './cart-icon.styles';
 
 const CartIcon = () => {
   const dispatch = useDispatch();
@@ -14,8 +14,9 @@ const CartIcon = () => {
 
   return (
     <CartIconContainer onClick={toggleIsCartOpen}>
-      <ShoppingIcon className='shopping-icon' />
-      <ItemCount>{cartCount}</ItemCount>
+      <StyledBadge badgeContent={cartCount} color='primary'>
+        <ShoppingBagOutlinedIcon fontSize='large' />
+      </StyledBadge>
     </CartIconContainer>
   );
 };

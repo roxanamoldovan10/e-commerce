@@ -1,6 +1,7 @@
 import { CartItemContainer, ItemDetails } from './cart-item.styles';
 import { memo } from 'react';
 import { CartItem as CartItemType } from '../../store/cart/cart.types';
+import Typography from '@mui/material/Typography';
 
 type CartItemProps = {
   cartItem: CartItemType;
@@ -12,9 +13,11 @@ const CartItem = memo(({ cartItem }: CartItemProps) => {
     <CartItemContainer>
       <img src={imageUrl} alt={`${name}`} />
       <ItemDetails>
-        <span>{name}</span>
         <span>
-          {quantity} x ${price}
+          <Typography fontWeight='bold'>
+            {quantity} x $ {price}
+          </Typography>
+          <Typography sx={{ fontSize: '13px' }}>{name}</Typography>
         </span>
       </ItemDetails>
     </CartItemContainer>

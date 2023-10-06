@@ -1,22 +1,23 @@
 import { useDispatch, useSelector } from 'react-redux';
 
+import { memo } from 'react';
+import { CartItem } from 'store/cart/cart.types';
 import {
-  clearItemFromCart,
   addItemToCart,
+  clearItemFromCart,
   removeItemFromCart,
 } from '../../store/cart/cart.action';
 import { selectCartItems } from '../../store/cart/cart.selector';
-import { memo } from 'react';
 import {
-  CheckoutItemContainer,
-  ImageContainer,
-  BaseSpan,
-  Quantity,
   Arrow,
-  Value,
+  CheckoutItemContainer,
+  CheckoutItemDetails,
+  CheckoutItemWrapper,
+  FlexItem,
+  ImageContainer,
   RemoveButton,
+  Value,
 } from './checkout-item.styles';
-import { CartItem } from 'store/cart/cart.types';
 
 type CheckoutItemProps = {
   cartItem: CartItem;
@@ -38,14 +39,20 @@ const CheckoutItem = memo(({ cartItem }: CheckoutItemProps) => {
       <ImageContainer>
         <img src={imageUrl} alt={`${name}`} />
       </ImageContainer>
-      <BaseSpan> {name} </BaseSpan>
-      <Quantity>
-        <Arrow onClick={removeItemHandler}>&#10094;</Arrow>
-        <Value>{quantity}</Value>
-        <Arrow onClick={addItemHandler}>&#10095;</Arrow>
-      </Quantity>
-      <BaseSpan> {price}</BaseSpan>
-      <RemoveButton onClick={clearItemHandler}>&#10005;</RemoveButton>
+      <CheckoutItemWrapper>
+        <CheckoutItemDetails>
+          <div>{name}</div>
+          <FlexItem>
+            <div>$ {price}</div>
+            <RemoveButton onClick={clearItemHandler}>&#10005;</RemoveButton>
+          </FlexItem>
+        </CheckoutItemDetails>
+        <FlexItem>
+          <Arrow onClick={removeItemHandler}>&#10094;</Arrow>
+          <Value>{quantity}</Value>
+          <Arrow onClick={addItemHandler}>&#10095;</Arrow>
+        </FlexItem>
+      </CheckoutItemWrapper>
     </CheckoutItemContainer>
   );
 });

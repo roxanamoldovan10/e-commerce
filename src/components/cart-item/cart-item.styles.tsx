@@ -3,11 +3,13 @@ import styled from 'styled-components';
 export const CartItemContainer = styled.div`
   width: 100%;
   display: flex;
-  height: 80px;
+  height: 100px;
   margin-bottom: 15px;
+  padding: 10px;
 
   img {
-    width: 30%;
+    height: 100%;
+    border-radius: 5%;
   }
 `;
 

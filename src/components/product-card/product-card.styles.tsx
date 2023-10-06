@@ -39,15 +39,20 @@ export const Footer = styled.div`
   width: 100%;
   height: 5%;
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
+  flex-direction: column;
   font-size: 18px;
 `;
 
 export const Name = styled.span`
-  width: 90%;
-  margin-bottom: 15px;
+  /* width: 90%; */
+  /* margin-bottom: 15px; */
 `;
 
 export const Price = styled.span`
   width: 10%;
+`;
+
+export const ProductImage = styled.img`
+  border-radius: 5px;
 `;
